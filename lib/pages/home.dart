@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:patientapp/pages/add.dart';
+import 'package:patientapp/pages/view.dart';
 class Menupg extends StatefulWidget {
   const Menupg({super.key});
 
@@ -48,8 +49,25 @@ class _MenupgState extends State<Menupg> {
                   },
                   child: Text("Add")),
             ),
-
-          ],
+        SizedBox(height: 20),
+        SizedBox(
+          height: 50,
+          width: 200,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.pink,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero,
+                )
+            ),
+            onPressed: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context)=>Viewpg()));
+            },
+            child: Text("View")
+            ,
+          )
+        )],
         ),
       ),
     );

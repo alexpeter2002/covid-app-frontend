@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:patientapp/model/model.dart';
 
 class PostApiservice
 {
@@ -39,6 +40,19 @@ class PostApiservice
     }
 
   }
+  Future <List<Posts>> getPost() async{
+    var Client=http.Client();
+    var apiurl=Uri.parse("http://localhost:3001/api/patients/view");
+    var response=await Client.get(apiurl);
+    if(response.statusCode==200)
+    {
+      var resp=response.body;
+      return postsFromJson(response.body);
+    }
+    else{
+      return[];
+    }
 
+  }
 
 }
